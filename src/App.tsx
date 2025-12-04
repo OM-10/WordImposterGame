@@ -22,34 +22,23 @@ function App() {
   }
 
   return (
-    <>
-      <div style={{ position: 'relative', width: '100%' }}>
-        <button 
+    <div className="app-shell">
+      <header className="app-header">
+        <h1 className="app-title">
+          <span>Imposter Word Game</span>
+        </h1>
+        <button
+          type="button"
+          className="app-settings-btn"
           onClick={() => setIsSettingsOpen(true)}
-          style={{
-            position: 'absolute',
-            top: '20px',
-            right: '20px',
-            padding: '10px 20px',
-            fontSize: '16px',
-            fontWeight: '600',
-            background: '#667eea',
-            color: 'white',
-            border: 'none',
-            borderRadius: '8px',
-            cursor: 'pointer',
-            transition: 'background 0.2s'
-          }}
-          onMouseOver={(e) => e.currentTarget.style.background = '#5568d3'}
-          onMouseOut={(e) => e.currentTarget.style.background = '#667eea'}
         >
-          Game Settings
+          <span>Game Settings</span>
         </button>
-      </div>
+      </header>
 
-      <h1>Imposter Game</h1>
-      
-      <PlayerGrid settings={settings} />
+      <main className="app-main">
+        <PlayerGrid settings={settings} />
+      </main>
 
       <SettingsModal
         isOpen={isSettingsOpen}
@@ -57,7 +46,7 @@ function App() {
         settings={settings}
         onSave={handleSaveSettings}
       />
-    </>
+    </div>
   )
 }
 
