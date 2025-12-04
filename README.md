@@ -1,75 +1,41 @@
-# React + TypeScript + Vite
+# Word Imposter – Social Game
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Word Imposter** is a party-style social deduction game, inspired by games like *Among Us* and *Spyfall*.  
+Each round, all players (crewmates) receive the same secret word — **except one** player who is the **Imposter** and receives no word.
 
-Currently, two official plugins are available:
+Everyone must give clues about the secret word, while hiding their identity.  
+Can the crewmates find the imposter before the imposter figures out the secret word?
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## How to Play
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+1. The game secretly chooses:
+   - **One secret word**
+   - **One random player** to be the **Imposter**
+2. All players **except the Imposter** are shown the secret word.
+3. Players take turns giving **short verbal hints** about the word.
+4. After each player has spoken, a **discussion** phase begins.
+5. A **vote** is held to reveal who the players think is the imposter.
 
-Note: This will impact Vite dev & build performances.
+### Win Conditions
 
-## Expanding the ESLint configuration
+| Role | Win Condition |
+|------|---------------|
+| **Crewmates** | Correctly identify the imposter in the vote |
+| **Imposter** | Avoid getting voted out **OR** correctly guess the secret word |
+| Make your own rules :)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## ✨ Features (Recommended)
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+- Pass and Play (3–10 players)
+- Word packs by theme (food, places, animals, movies…)
+- Optional difficulty levels:
+  - **Easy**: common, obvious words
+  - **Medium**: abstract concepts
+  - **Hard**: tricky, double-meaning words
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+---
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```

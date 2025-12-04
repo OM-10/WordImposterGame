@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import SettingsModal, { type GameSettings } from './components/SettingsModal'
 import PlayerGrid from './components/PlayerGrid'
-import { getRandomWord, getRandomFrontText } from './data/words'
 import './App.css'
 
 const DEFAULT_SETTINGS: GameSettings = {
