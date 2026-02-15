@@ -28,7 +28,7 @@ Can the crewmates find the imposter before the imposter figures out the secret w
 
 ---
 
-## ✨ Features (Recommended)
+## Features (Recommended)
 
 - Pass and Play (3–10 players)
 - Word packs by theme (food, places, animals, movies…)
